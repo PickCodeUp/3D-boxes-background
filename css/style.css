@@ -1,0 +1,99 @@
+/*Importamos las fuentes de nuestro texto*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/*Este es el contendor de nuestro contenido*/
+* {
+  box-sizing: border-box;
+}
+
+/*Aquí damos los estilos a la parte visible del navegador*/
+body {
+  background-color: #cfeeea; /*Establecemos el color de fondo*/
+  font-family: 'Roboto', sans-serif; /**Establecemos la tipografía del texto*/
+  display: flex; /*Indicamos que el contenido es flexible*/
+  flex-direction: column; /*Indicamos que la dirección del contenido es vertical*/
+  align-items: center; /*alineamos los elementos en el centro*/
+  justify-content: center;/*Justificamos el contenido*/
+  height: 100vh; /*Le indicamos que la parte visible será el 100%*/
+  overflow: hidden;/*El desbordamiento se recorta y el resto del contenido será invisible*/
+}
+
+/*Esta es la clase que hemos asignado al botón*/
+.magic {
+  background-color: red; /*E color de fondo del botón*/
+  color: yellow; /*El color del texto del botón*/
+  font-family: 'Poppins', sans-serif; /*La tipografía del texto del botón*/
+  border: 0; /*El grosor del borde del botón*/
+  border-radius: 2em; /*Redondeamos las esquinas del botón*/
+  font-size: 18px; /*Tamaño de la fuente del texto del botón*/
+  font-weight: bolder; /*La fuente será negrita*/
+  padding: 12px 20px; /*Espacio entre el borde del botón y su contenido*/
+  cursor: pointer; /*El puntero se mostrará sobre el cursor*/
+  position: fixed; /*La posición va a ser fija*/
+  top: 20px; /*Esta es la distancia desde el borde del navegador hasta el botón*/
+  letter-spacing: 5px; /*El espaciado entre las letras*/
+  box-shadow: 0 3px orange; /*El borde sombreado de la caja del botón*/
+  z-index: 100;/*El borde respecto al botón*/
+}
+
+.magic:focus {
+  outline: none;
+}
+
+.magic:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+/*Esta es la clase que hemos asignado al contenedor de los cubos*/
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 500px;
+  width: 500px;
+  position: relative;
+  transition: 0.4s ease;
+}
+
+.boxes.big {
+  width: 600px;
+  height: 600px;
+}
+
+.boxes.big .box {
+  transform: rotateZ(360deg);
+}
+
+.box {
+  background-image: url("../img/imgPJ.png");
+  background-repeat: no-repeat;
+  background-size: 500px 500px;
+  position: relative;
+  height: 125px;
+  width: 125px;
+  transition: 0.4s ease;
+}
+
+.box::after {
+  content: '';
+  background-color: #f6e58d;
+  position: absolute;
+  top: 8px;
+  right: -15px;
+  height: 100%;
+  width: 15px;
+  transform: skewY(45deg);
+}
+
+.box::before {
+  content: '';
+  background-color: #f9ca24;
+  position: absolute;
+  bottom: -15px;
+  left: 8px;
+  height: 15px;
+  width: 100%;
+  transform: skewX(45deg);
+}
